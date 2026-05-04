@@ -1,4 +1,4 @@
-package com.incubyte.settings;
+package com.utils.settings;
 
 import com.incubyte.helper.GenericHelper;
 import com.incubyte.pageObjects.LoginPage;

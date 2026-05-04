@@ -1,6 +1,6 @@
-package com.incubyte.steps;
+package com.steps;
 
-import com.incubyte.settings.TextContext;
+import com.utils.settings.TextContext;
 import cucumber.api.DataTable;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;

@@ -1,7 +1,7 @@
-package com.incubyte.steps;
-import com.incubyte.pageObjects.LoginPage;
-import com.incubyte.helper.GenericHelper;
-import com.incubyte.settings.TextContext;
+package com.steps;
+import com.utils.pageObjects.LoginPage;
+import com.utils.helper.GenericHelper;
+import com.utils.settings.TextContext;
 import org.openqa.selenium.WebDriver;
 
 public class BaseClass {

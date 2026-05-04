@@ -1,4 +1,4 @@
-package com.incubtye.runner;
+package com.TestRunner.runner;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
