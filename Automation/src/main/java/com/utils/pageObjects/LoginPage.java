@@ -8,18 +8,13 @@ public class LoginPage extends BaseClass {
     public LoginPage(WebDriver driver) {
         this.driver = driver;
     }
-//    String createAccount ="(.//a[text()='Create an Account'])[1]";
-//    String firstName =".//input[@id='firstname']";
-//    String lastName =".//input[@id='lastname']";
-//    String emailAddress =".//input[@id='email_address']";
-//    String password =".//input[@id='password']";
-//    String passwordConfirm =".//input[@id='password-confirmation']";
-//    String createAccountButton =".//span[contains(text(),'Create an Account')]";
 
-    public By getCreateAccount_ButtonHomePage() { return By.xpath("(.//a[text()='Create an Account'])[1]");}
-    public By getFirstName_TextBox() { return By.xpath(".//input[@id='firstname']");}
-    public By getLastName_TextBox() { return By.xpath(".//input[@id='lastname']");}
-    public By getEmailAddressAtCreateAccount_TextBox() { return By.xpath(".//input[@id='email_address']");}
+    public By getSignInOrLoginLink() { return By.xpath("//a[normalize-space()='Signup / Login']");}
+    public By getName_TextBox() { return By.name("name");}
+    public By getEmailAddressAtSignIn() { return By.xpath(".//input[@name='email' and @data-qa='signup-email']");}
+    public By getEmailAddressAtLogIn() { return By.xpath("//input[@name='email' and @data-qa='login-email']");}
+
+
     public By getPasswordAtCreateAccount_TextBox() {return By.xpath(".//input[@id='password']");}
     public By getPasswordConfirm_TextBox() {return By.xpath(".//input[@id='password-confirmation']");}
     public By getCreateAccount_Button () {return By.xpath(".//span[contains(text(),'Create an Account')]");}
@@ -31,7 +26,7 @@ public class LoginPage extends BaseClass {
     public By getCustomerLoginHeader_Text() {return By.xpath(".//span[text()='Customer Login']");}
     public By getPasswordAtSignin_TextBox() {return By.xpath(".//input[@id='pass']");}
     public By getEmailAddressAtSignin_TextBox() {return By.xpath(".//input[@id='email']");}
-    public By getSignIn_Button () {return By.xpath(".//span[contains(text(),'Sign In')]");}
+    public By getSignUpButton () {return By.xpath(".//button[normalize-space()='Signup']");}
     public By getMyAccountUnderOptions() {return By.xpath(".//a[contains(text(),'My Account')]");}
     public By getErrorMesgForExistingAccount() {return By.xpath(".//div[contains(text(),'There is already an account with this email address.')]");}
     @Override
