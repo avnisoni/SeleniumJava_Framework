@@ -1,14 +1,14 @@
-package com.incubyte.steps;
+package com.steps;
 
-import com.incubyte.settings.TextContext;
-import cucumber.api.DataTable;
-import cucumber.api.Scenario;
-import cucumber.api.java.After;
-import cucumber.api.java.Before;
-import cucumber.api.java.en.And;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import com.utils.settings.TextContext;
+import io.cucumber.datatable.DataTable;
+import io.cucumber.java.Scenario;
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
@@ -26,23 +26,20 @@ public class LoginSteps extends BaseClass{
         this.scenario = scenario;
     }
 
-    @Given("^User creates a magento account$")
-    public void userCreatesAMangentoAccount(DataTable dataTable)throws Throwable {
+    @Given("^User creates an account$")
+    public void userCreatesAnAccount(DataTable dataTable)throws Throwable {
         List<Map<String,String>> rows = dataTable.asMaps(String.class, String.class);
-        String firstName = rows.get(0).get("FirstName");
-        String lastName = rows.get(0).get("LastName");
+        String name = rows.get(0).get("Name");
         String email = rows.get(0).get("Email");
-        String password = rows.get(0).get("Password");
 
-        genericHelper.click(loginPage.getCreateAccount_ButtonHomePage());
+        genericHelper.click(loginPage.getSignInOrLoginLink());
         Thread.sleep(2000);
-        genericHelper.sendKeys(loginPage.getFirstName_TextBox(), firstName);
-        genericHelper.sendKeys(loginPage.getLastName_TextBox(), lastName);
-        genericHelper.sendKeys(loginPage.getEmailAddressAtCreateAccount_TextBox(), email);
-        genericHelper.sendKeys(loginPage.getPasswordAtCreateAccount_TextBox(), password);
-        genericHelper.sendKeys(loginPage.getPasswordConfirm_TextBox(), password);
+        genericHelper.sendKeys(loginPage.getName_TextBox(), name);
+        genericHelper.sendKeys(loginPage.getEmailAddressAtSignIn(), email);
         Thread.sleep(2000);
-        genericHelper.click(loginPage.getCreateAccount_Button());
+        genericHelper.click(loginPage.getSignUpButton());
+
+        System.out.println("You have successfully landed to Enter Account Information Page");
     }
 
     @Then("User verifies that account is successfully created")
@@ -74,7 +71,7 @@ public class LoginSteps extends BaseClass{
         genericHelper.sendKeys(loginPage.getEmailAddressAtSignin_TextBox(), email);
         genericHelper.sendKeys(loginPage.getPasswordAtSignin_TextBox(), password);
 
-        genericHelper.click(loginPage.getSignIn_Button());
+//        genericHelper.click(loginPage.getSignIn_Button());
         Thread.sleep(2000);
     }
 
